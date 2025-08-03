@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Growing Hearts</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+    body {
+      margin: 0;
+      background: #ffe6f0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    .heart-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: none;
+    }
+
+    .heart {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80vmin;
+      height: 80vmin;
+      fill: #ff3366;
+      animation: grow 1.5s infinite ease-in-out;
+    }
+
+    .heart:nth-child(2) { animation-delay: 0.2s; opacity: 0.8; }
+    .heart:nth-child(3) { animation-delay: 0.4s; opacity: 0.6; }
+    .heart:nth-child(4) { animation-delay: 0.6s; opacity: 0.4; }
+    .heart:nth-child(5) { animation-delay: 0.8s; opacity: 0.2; }
+
+    @keyframes grow {
+      0% { transform: translate(-50%, -50%) scale(0.3); }
+      50% { transform: translate(-50%, -50%) scale(1); }
+      100% { transform: translate(-50%, -50%) scale(0.3); }
+    }
+
+    .start-button {
+      font-size: 1.5rem;
+      padding: 0.6rem 1.5rem;
+      background-color: #ff3366;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 10;
+      font-family: 'Dancing Script', cursive;
+      box-shadow: 0 4px 12px rgba(255, 51, 102, 0.3);
+      transition: background-color 0.3s ease;
+    }
+
+    .start-button:hover {
+      background-color: #e62e5c;
+    }
+
+    /* Message Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 192, 203, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  color: #e6005c;
+  max-width: 30%;
+  max-height: 30vh;
+  overflow-y: auto;
+  text-align: center;
+  position: relative;
+}
+
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #e6005c;
+    }
+  </style>
+</head>
+<body>
+  <button class="start-button" onclick="showHearts()">Yo Ghadhediii here is a small suprise for u</button>
+
+  <div class="heart-container" id="hearts">
+    <svg class="heart" viewBox="0 0 32 29.6">
+      <path d="M23.6,0c-3.4,0-6.4,2.7-7.6,5.5C14.8,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4C0,17.7,16,29.6,16,29.6s16-11.9,16-21.2 C32,3.8,28.2,0,23.6,0z"/>
+    </svg>
+    <svg class="heart" viewBox="0 0 32 29.6">
+      <path d="M23.6,0c-3.4,0-6.4,2.7-7.6,5.5C14.8,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4C0,17.7,16,29.6,16,29.6s16-11.9,16-21.2 C32,3.8,28.2,0,23.6,0z"/>
+    </svg>
+    <svg class="heart" viewBox="0 0 32 29.6">
+      <path d="M23.6,0c-3.4,0-6.4,2.7-7.6,5.5C14.8,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4C0,17.7,16,29.6,16,29.6s16-11.9,16-21.2 C32,3.8,28.2,0,23.6,0z"/>
+    </svg>
+    <svg class="heart" viewBox="0 0 32 29.6">
+      <path d="M23.6,0c-3.4,0-6.4,2.7-7.6,5.5C14.8,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4C0,17.7,16,29.6,16,29.6s16-11.9,16-21.2 C32,3.8,28.2,0,23.6,0z"/>
+    </svg>
+    <svg class="heart" viewBox="0 0 32 29.6">
+      <path d="M23.6,0c-3.4,0-6.4,2.7-7.6,5.5C14.8,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4C0,17.7,16,29.6,16,29.6s16-11.9,16-21.2 C32,3.8,28.2,0,23.6,0z"/>
+    </svg>
+  </div>
+
+  <!-- 💌 Message Modal -->
+  <div id="messageModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeMessage()">&times;</span>
+    Yoo Ghadhidiii,<br><br>
+    Happy friendship's day my pyarriiii si dibbbii🌷🌷❤❤❤❤🫂<br>
+    I'm very very verrryyyyy grateful for ur existence in my life<br>
+    I really don't have how to express n say it to u🌷🌷🧿❤.... u were someone randon to me and never expected u to become so close to me at all🌷🌷🌷🌷... n yet u became so close to me🧿🧿🧿....<br><br>
+    I am sorry for my past mistakes hurting u all the times and telling u too go away from me n always making u sad sorry deep dow from the bottom of my heart🫡😁❤❤🫂🫂....<br><br>
+    U are like a storm that came into my life unexpectedly and we became so close unexpectedly too....<br>
+    I never imagined u to become so close to me and u always believed n trusted me blindly from clg days but I never respected u at all at that time, I didn't respect ur time for me, I always throwed u like a trash but u still always stood there like nothing happened n still smiled at me....<br><br>
+    I am very very gratefull for u really dibbii❤🫂…. jithna bhi bolu kam hai, ur different ash🌷🌷....<br>
+    I love the way u are like a small child when im around u, ur so free when im with u thanks for believing me n showing ur true side.....<br><br>
+    Aur tu jo irritate karthi hai na muje uffff omg😂😂😂🌷🌷🌷aur muje apna pyare pyare hatoo se maar bhi milta haii❤❤❤🌷<br>
+    aurr haa thanks for always tolerating me all the time sweetieeee hehehheheh…..<br><br>
+    Thank uu dear for always staying with me ASSSHHHAAA<br>
+    Thankss for supporting me n caring me too.....<br><br>
+    <strong>FOR ME U ARE THE UNEXPECTED ALL THE TIME , WHICH I THOUGHT WOULD NEVER HAPPEN WITH U VO SAB HUAA</strong><br><br>
+    Aur haa yaa vaadha kiya hai naa I WONT LEAVE N GO ANYWHERE WITHOUT U, TILL DEATH ILL BE WITH U ALWAYS , I LOVE U ❤❤❤ moree okkk hope u remember this all the time 😁😁<br><br>
+    I have lots to say but im not getting proper words n I cant remember what more I wanna say to u but haa for today ithna hee aur haa im stuck with u forever n staying with u is never a option for me ok<br><br>
+    I always want to stay with u that's my choice okkk<br><br>
+    always with u,<br>
+    ur Pyaraa sa dibbewww and ur guardian devil with his angel<br><br>
+    <em>YOUR ALWAYS #dibbeww#ghadhedaaa#headache#ur guardian devil#UR EVERYTHING❤❤</em>
+  </div>
+</div>
+
+
+  <script>
+    function showHearts() {
+      document.querySelector('.start-button').style.display = 'none';
+      document.getElementById('hearts').style.display = 'block';
+      document.getElementById('messageModal').style.display = 'flex';
+    }
+
+    function closeMessage() {
+      document.getElementById('messageModal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
